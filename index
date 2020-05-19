@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <title>KG IMDB</title>
+</head>
+<body>
+
+<?php
+  if (isset($_GET['page'])) //bestaat de variable page in de URL
+     $page = $_GET ['page'];
+  else
+      $page = 'home'; //standaard pagina die wordt ingeladen
+
+      if(preg_match('/^[a-z0-9\-]+$/', $page)) //veiligheid
+      {$inserted = include('pages/' . $page . '.php');
+      if (!$inserted)
+        echo('de pagina die u zoekt bestaat niet!.');
+      }
+      else
+          echo('foute pagina gegevens');
+
+ ?>
+
+
+</body>
+</html>
+
+
